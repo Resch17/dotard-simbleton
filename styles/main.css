@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container h1 {
+  margin-left: 0.5em;
+}
+
+.business {
+  margin: 1em;
+  border-top: 2px solid black;
+  width: 50%;
+}
