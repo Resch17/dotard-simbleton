@@ -3,9 +3,11 @@ import { Business } from "./Business.js";
 import { useBusinesses } from "./BusinessProvider.js";
 import { useAgents } from "./PurchasingAgents.js";
 
+const businessArray = useBusinesses();
+const agentArray = useAgents();
+
 export const BusinessList = () => {
   const domTarget = document.querySelector(".businessList");
-  const businessArray = useBusinesses();
 
   businessArray.forEach((business) => {
     domTarget.innerHTML += Business(business);
@@ -13,7 +15,6 @@ export const BusinessList = () => {
 };
 
 export const NewYorkList = () => {
-  const businessArray = useBusinesses();
   const nyElement = document.querySelector(".businessList--newYork");
   let newYorkArray = businessArray.filter((business) => {
     if (business.addressStateCode === "NY") {
@@ -28,10 +29,37 @@ export const NewYorkList = () => {
 };
 
 export const AgentList = () => {
-  const agentArray = useAgents();
   const agentElement = document.querySelector(".agents");
 
   agentArray.forEach((agent) => {
     agentElement.innerHTML += Agent(agent);
   });
+};
+
+export const searchFunction = () => {
+  const companySearchResultArticle = document.querySelector(".foundCompanies");
+
+  document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", (keyPressEvent) => {
+      if (keyPressEvent.charCode === 13) {
+        const foundBusiness = businessArray.find((business) => {
+          return business.companyName.includes(keyPressEvent.target.value);
+        });
+
+        companySearchResultArticle.innerHTML = `
+          <h2>
+          ${foundBusiness.companyName}
+          </h2>
+          <section>
+          ${foundBusiness.addressFullStreet}
+            </section>
+            <section>
+            ${foundBusiness.addressCity},
+            ${foundBusiness.addressStateCode}
+            ${foundBusiness.addressZipCode}
+            </section>
+        `;
+      }
+    });
 };
