@@ -5,5 +5,5 @@ export const Business = (bus) => {
     <p>${bus.addressFullStreet}</p>
     <p>${bus.addressCity}, ${bus.addressStateCode} ${bus.addressZipCode}</p>
   </section>
-  `
-}
+  `;
+};
