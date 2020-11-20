@@ -37,28 +37,20 @@ export const AgentList = () => {
 };
 
 export const searchFunction = () => {
-  const companySearchResultArticle = document.querySelector(".foundCompanies");
+  const agentSearchResultArticle = document.querySelector(".foundCompanies");
 
   document
     .querySelector("#companySearch")
     .addEventListener("keypress", (keyPressEvent) => {
       if (keyPressEvent.charCode === 13) {
-        const foundBusiness = businessArray.find((business) => {
-          return business.companyName.includes(keyPressEvent.target.value);
+        const foundAgent = agentArray.find((agent) => {
+          return agent.fullName.includes(keyPressEvent.target.value);
         });
 
-        companySearchResultArticle.innerHTML = `
-          <h2>
-          ${foundBusiness.companyName}
-          </h2>
-          <section>
-          ${foundBusiness.addressFullStreet}
-            </section>
-            <section>
-            ${foundBusiness.addressCity},
-            ${foundBusiness.addressStateCode}
-            ${foundBusiness.addressZipCode}
-            </section>
+        agentSearchResultArticle.innerHTML = `
+          <h2>${foundAgent.fullName}</h2>
+          <p>${foundAgent.company}</p>
+          <p>${foundAgent.phoneNumber}</p>
         `;
       }
     });

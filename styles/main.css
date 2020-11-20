@@ -3,6 +3,15 @@
   padding: 0;
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container div {
+  margin: 1em;
+}
+
 .container h1 {
   margin-left: 0.5em;
 }
@@ -11,5 +20,4 @@
 .agent {
   margin: 1em;
   border-top: 2px solid black;
-  width: 50%;
 }
