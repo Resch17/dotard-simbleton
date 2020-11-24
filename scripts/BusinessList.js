@@ -15,10 +15,11 @@ export const BusinessList = () => {
 export const NewYorkList = () => {
   const nyElement = document.querySelector(".businessList--newYork");
   let newYorkArray = businessArray.filter((business) => {
-    if (business.addressStateCode === "NY") {
-      return true;
-    }
-    return false;
+    // if (business.addressStateCode === "NY") {
+    //   return true;
+    // }
+    // return false;    
+    return business.addressStateCode === "NY" ? true : false
   });
 
   newYorkArray.forEach((business) => {

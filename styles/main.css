@@ -29,9 +29,11 @@
 
 .container div input {
   text-align: center;
+  margin: 0 0.5em;
 }
 
-.container h1 {
+.container h1,
+.container h2 {
   margin: 0.5em;
 }
 
@@ -39,4 +41,17 @@
 .agent {
   margin: 1em;
   border-top: 2px solid black;
+}
+
+#nyToggle {
+  margin: 0 1em;
+  padding: 2px;
+}
+
+#nyBus {
+  display: none;
+}
+
+.container div article {
+  text-align: left;
 }
